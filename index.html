@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nahid Dream Deployer | Global Marketing & Tech Agency</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary: #0f172a;
+            --accent: #ff9800;
+            --blue: #2563eb;
+            --glass: rgba(255, 255, 255, 0.05);
+            --card-bg: #ffffff;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; scroll-behavior: smooth; }
+
+        body { background-color: #f8fafc; color: var(--primary); overflow-x: hidden; }
+
+        /* Modern Navbar */
+        nav {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(15px);
+            padding: 15px 8%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 30px rgba(0,0,0,0.05);
+        }
+
+        .logo-area { display: flex; align-items: center; gap: 12px; }
+        .logo-img { width: 45px; height: 45px; border-radius: 50%; border: 2px solid var(--accent); }
+        .brand-name { font-weight: 800; font-size: 20px; letter-spacing: -0.5px; }
+        .brand-name span { color: var(--accent); }
+
+        /* Hero Section - Eye Catching */
+        header {
+            background: linear-gradient(135deg, rgba(15,23,42,0.95) 0%, rgba(30,41,59,0.9) 100%), 
+                        url('https://uploads.onecompiler.io/44bs842tz/44bs89m6w/5347.gif');
+            background-size: cover;
+            background-position: center;
+            padding: 120px 8% 80px;
+            text-align: center;
+            color: white;
+            clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 100%);
+        }
+
+        .hero-badge { background: rgba(255,152,0,0.2); color: var(--accent); padding: 8px 20px; border-radius: 50px; border: 1px solid var(--accent); font-size: 13px; font-weight: 600; margin-bottom: 25px; display: inline-block; }
+        header h1 { font-size: clamp(32px, 6vw, 64px); line-height: 1.1; margin-bottom: 20px; }
+        header p { max-width: 600px; margin: 0 auto 35px; opacity: 0.8; font-weight: 300; }
+
+        .btn-premium {
+            background: var(--accent);
+            color: #000;
+            padding: 16px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            display: inline-block;
+            transition: 0.4s;
+            box-shadow: 0 10px 25px rgba(255,152,0,0.3);
+        }
+        .btn-premium:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(255,152,0,0.5); }
+
+        /* Services Grid */
+        .container { padding: 80px 8%; }
+        .section-header { text-align: center; margin-bottom: 60px; }
+        .section-header h2 { font-size: 36px; font-weight: 800; margin-bottom: 10px; }
+        .section-header .line { width: 60px; height: 4px; background: var(--accent); margin: 0 auto; border-radius: 2px; }
+
+        .service-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 24px;
+            padding: 40px;
+            transition: 0.4s;
+            border: 1px solid rgba(0,0,0,0.03);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+            position: relative;
+        }
+
+        .card:hover { transform: translateY(-12px); box-shadow: 0 25px 50px rgba(0,0,0,0.08); }
+
+        .icon-box { 
+            width: 70px; height: 70px; border-radius: 20px; 
+            display: flex; align-items: center; justify-content: center; 
+            font-size: 32px; margin-bottom: 25px;
+        }
+
+        /* Platform Specific Colors */
+        .fb { background: #E7F3FF; color: #1877F2; }
+        .yt { background: #FFEBEE; color: #FF0000; }
+        .tk { background: #F0F0F0; color: #000000; }
+        .ig { background: #FFF0F5; color: #E1306C; }
+        .web { background: #E0F2F1; color: #00897B; }
+        .app { background: #EDE7F6; color: #673AB7; }
+
+        .card h3 { font-size: 22px; margin-bottom: 15px; font-weight: 700; }
+        .card ul { list-style: none; margin-bottom: 30px; }
+        .card ul li { margin-bottom: 12px; font-size: 14px; opacity: 0.7; display: flex; align-items: center; gap: 10px; }
+        .card ul li i { color: #22c55e; font-size: 12px; }
+
+        /* Video Section */
+        .video-box { background: var(--primary); padding: 80px 8%; border-radius: 40px; margin: 40px 8%; color: white; text-align: center; }
+        .iframe-wrapper { 
+            max-width: 900px; margin: 40px auto; 
+            aspect-ratio: 16/9; border-radius: 20px; 
+            overflow: hidden; border: 4px solid rgba(255,255,255,0.1); 
+        }
+
+        /* Footer */
+        footer { background: var(--primary); color: white; padding: 60px 8%; text-align: center; }
+        .footer-socials { margin: 20px 0; display: flex; justify-content: center; gap: 20px; }
+        .footer-socials a { color: white; font-size: 20px; transition: 0.3s; }
+        .footer-socials a:hover { color: var(--accent); }
+
+        /* Floating Live Chat */
+        .chat-widget {
+            position: fixed; bottom: 30px; right: 30px; 
+            background: var(--blue); color: white; 
+            padding: 15px 25px; border-radius: 50px; 
+            display: flex; align-items: center; gap: 12px; 
+            box-shadow: 0 10px 30px rgba(37, 99, 235, 0.4); 
+            text-decoration: none; font-weight: 600; z-index: 1000;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo-area">
+            <img src="https://uploads.onecompiler.io/44bs842tz/44bs89m6w/5347.gif" alt="Nahid Logo" class="logo-img">
+            <div class="brand-name">NAHID <span>DREAM DEPLOYER</span></div>
+        </div>
+        <a href="https://wa.me/8801968405571" class="btn-premium" style="padding: 10px 25px; font-size: 14px;">Contact Us</a>
+    </nav>
+
+    <header>
+        <div class="hero-badge">Digital Marketing Deployment</div>
+        <h2>Nahid<br> Dreams Deployer</h2>
+        <p>Expert monetization, viral growth, and high-end development solutions for modern entrepreneurs.</p>
+        <a href="#services" class="btn-premium">Explore Solutions</a>
+    </header>
+
+    <div class="container" id="services">
+        <div class="section-header">
+            <h2>Cyber Security help Them</h2>
+            <div class="line"></div>
+        </div>
+
+        <div class="service-grid">
+            <div class="card">
+           <div class="icon-box fb"><i class="fab fa-facebook-f"></i></div>
+            <img src="https://uploads.onecompiler.io/44bs842tz/44bs89m6w/5223.png" width="100%" height="30%">
+                <h3>Facebook Mastery</h3>
+                <ul>
+                    <li><i class="fas fa-check"></i> In-Stream Ads Monetization</li>
+                    <li><i class="fas fa-check"></i> Policy Issue Fixing</li>
+                    <li><i class="fas fa-check"></i> 100% Real Active Followers</li>
+                </ul>
+                <a href="https://wa.me/8801968405571" class="btn-premium" style="width: 100%; text-align: center;">Order Now</a>
+            </div>
+
+            <div class="card">
+                <div class="icon-box yt"><i class="fab fa-youtube"></i></div>
+                <h3>YouTube Growth</h3>
+                <ul>
+                    <li><i class="fas fa-check"></i> 4000 Hours Watchtime</li>
+                    <li><i class="fas fa-check"></i> Organic Subscriber Boost</li>
+                    <li><i class="fas fa-check"></i> Video SEO & Ranking</li>
+                </ul>
+                <a href="https://wa.me/8801968405571" class="btn-premium" style="width: 100%; text-align: center;">Order Now</a>
+            </div>
+
+            <div class="card">
+                <div class="icon-box tk"><i class="fab fa-tiktok"></i></div>
+                <h3>TikTok Viral</h3>
+                <ul>
+                    <li><i class="fas fa-check"></i> Creativity Program Setup</li>
+                    <li><i class="fas fa-check"></i> Viral Content Strategy</li>
+                    <li><i class="fas fa-check"></i> Global Target Followers</li>
+                </ul>
+                <a href="https://wa.me/8801968405571" class="btn-premium" style="width: 100%; text-align: center;">Order Now</a>
+            </div>
+
+            <div class="card">
+                <div class="icon-box ig"><i class="fab fa-instagram"></i></div>
+            <img src="https://uploads.onecompiler.io/44bs842tz/44bs89m6w/5309.gif" width="100%" height="30%">
+                <h3>Instagram Elite</h3>
+                <ul>
+                    <li><i class="fas fa-check"></i> Business Profile Branding</li>
+                    <li><i class="fas fa-check"></i> Aesthetic Content Design</li>
+                    <li><i class="fas fa-check"></i> Influencer Growth Plan</li>
+                </ul>
+                <a href="https://wa.me/8801968405571" class="btn-premium" style="width: 100%; text-align: center;">Order Now</a>
+            </div>
+
+            <div class="card">
+                <div class="icon-box web"><i class="fas fa-code"></i></div>
+                <h3>Web Development</h3>
+                <ul>
+                    <li><i class="fas fa-check"></i> Premium Business Websites</li>
+                    <li><i class="fas fa-check"></i> E-Commerce Solutions</li>
+                    <li><i class="fas fa-check"></i> High Conversion Funnels</li>
+                </ul>
+                <a href="https://wa.me/8801968405571" class="btn-premium" style="width: 100%; text-align: center;">Order Now</a>
+            </div>
+
+            <div class="card">
+                <div class="icon-box app"><i class="fas fa-mobile-alt"></i></div>
+                <h3>App Development</h3>
+                <ul>
+                    <li><i class="fas fa-check"></i> iOS & Android Apps</li>
+                    <li><i class="fas fa-check"></i> Smooth UI/UX Design</li>
+                    <li><i class="fas fa-check"></i> API Integration & Support</li>
+                </ul>
+                <a href="https://wa.me/8801968405571" class="btn-premium" style="width: 100%; text-align: center;">Order Now</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="video-box">
+        <h2>Live Project Showcase</h2>
+        <p>Watch how we transform digital presences into money-making machines.</p>
+        <div class="iframe-wrapper">
+            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <footer>
+        <div class="brand-name" style="color: white; margin-bottom: 20px;">NAHID <span>DREAM DEPLOYER</span></div>
+        <p>Empowering 500+ Businesses Worldwide</p>
+        <div class="footer-socials">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-whatsapp"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+        </div>
+        <p style="font-size: 12px; opacity: 0.5;">© 2026 Nahid Dream Deployer. All Rights Reserved.</p>
+    </footer>
+
+    <a href="https://wa.me/8801968405571" class="chat-widget">
+        <i class="fab fa-whatsapp"></i>
+        <span>Live Chat</span>
+    </a>
+
+</body>
+</html>
